@@ -333,11 +333,10 @@ for i_Pr in range(len(Prs)):
         Prandtl             = Prs[i_Pr]
         f_nu                = f_nus[i_f_nu]
         try:
-            # target  = scipy.optimize.root_scalar(find_final_gradient, bracket = [0.1,1], rtol=1e-4)
+            factor = 0.9
             j = 1.0
             final_gradient = find_final_gradient(j)
             positive = 1
-            factor = 0.9
             while positive > 0:
                 j *= factor
                 next_final_gradient = find_final_gradient(j)
